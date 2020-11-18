@@ -1,3 +1,4 @@
+import Axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react';
 import Loader from '../components/Loader';
 import { newsApiUrl } from '../constants/constants';
@@ -8,10 +9,10 @@ const NewsContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
 
-        fetch(newsApiUrl)
-            .then(response => response.json())
+        Axios.get(newsApiUrl)
+            // .then(response => response.json())
             .then(results => {
-                setNews(results.articles);
+                setNews(results.data.articles);
                 setIsLoading(false);
             })
     }, [])
