@@ -7,7 +7,7 @@ const SingleHeadline = ({ article }) => {
     return (
         <>
             <div className="card hoverable" >
-                <a href={`${url}`} className="stretched-link" target="_blank">
+                <a href={`${url}`} rel="noreferrer" className="stretched-link" target="_blank">
 
                 </a>
                 <img className="card-img-top" src={`${urlToImage}`} alt={`${name} image`} />
