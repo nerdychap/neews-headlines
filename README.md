@@ -20,3 +20,10 @@ The production version of the application can be accessed by first doing a produ
 Then served locally using:
 
 ### serve -s build
+
+## Note***
+
+-The free newsAPI can only be used in a local environment, so the API can't be accessed from a remotely hosted application. 
+-The newsAPI free version only allows up to 100 requests in a 24-hour period from 1 developer API key.
+-The article dates can only go as far back as 18 October 2018
+
