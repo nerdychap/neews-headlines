@@ -16,7 +16,7 @@ img{
     height: 450px;
     overflow: auto;
 }
-@media screen and (min-width: 600px) and (max-width: 992px){
+@media screen and (min-width: 576px) and (max-width: 992px){
     .card-columns{
         display: grid;
         grid-template-columns: repeat(2, 1fr);

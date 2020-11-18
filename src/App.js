@@ -5,6 +5,7 @@ const { default: Headlines } = require("./components/Headlines");
 const { default: NewsContextProvider } = require("./context/NewsContextProvider");
 
 function App() {
+
   return (
     <>
       <Header />
