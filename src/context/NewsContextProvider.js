@@ -54,8 +54,7 @@ const NewsContextProvider = ({ children }) => {
     else if (hasError) return <>{FormHeading}<RequestError errorMessage={errorMessage} /></>;
     return (
         <>
-            <Form data={{ query, date, queryChange, querySubmit }} />
-            <h2 className="text-center p-1">Headlines</h2>
+            {FormHeading}
             <NewsContext.Provider value={{ news, queryChange, querySubmit, query, date }}>
                 {children}
             </NewsContext.Provider>
