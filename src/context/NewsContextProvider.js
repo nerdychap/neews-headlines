@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react';
+import Form from '../components/Form';
 import Loader from '../components/Loader';
 export const NewsContext = createContext({});
 
@@ -35,9 +36,11 @@ const NewsContextProvider = ({ children }) => {
                 setIsLoading(false);
             })
     }, [])
-    if (isLoading) return <Loader />
+    if (isLoading) return <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2><Loader /></>
     return (
         <>
+            <Form data={{ query, date, queryChange, querySubmit }} />
+            <h2 className="text-center p-1">Headlines</h2>
             <NewsContext.Provider value={{ news, queryChange, querySubmit, query, date }}>
                 {children}
             </NewsContext.Provider>
