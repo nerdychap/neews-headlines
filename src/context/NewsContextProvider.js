@@ -50,7 +50,7 @@ const NewsContextProvider = ({ children }) => {
             });
     }, [])
     if (isLoading) return <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2><Loader /></>
-    else if (hasError) return <RequestError errorMessage={errorMessage} />;
+    else if (hasError) return <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2><RequestError errorMessage={errorMessage} /></>;
     return (
         <>
             <Form data={{ query, date, queryChange, querySubmit }} />
