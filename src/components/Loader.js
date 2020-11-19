@@ -1,5 +1,5 @@
 import React from 'react';
-import ClockLoader from 'react-spinners/ClockLoader'
+import ClockLoader from 'react-spinners/ClockLoader';
 
 const Loader = () => {
     return (

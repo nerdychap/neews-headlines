@@ -1,5 +1,5 @@
-import React from 'react'
-import { MdDateRange } from 'react-icons/md'
+import React from 'react';
+import { MdDateRange } from 'react-icons/md';
 
 const SingleHeadline = ({ article }) => {
     const { author, title, urlToImage, publishedAt, source: { name }, url } = article;
@@ -21,4 +21,4 @@ const SingleHeadline = ({ article }) => {
     )
 }
 
-export default SingleHeadline
+export default SingleHeadline;

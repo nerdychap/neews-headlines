@@ -10,7 +10,6 @@ const Headlines = () => {
     return (
         <>
             <div className="container">
-                {/* <Form queryChange={queryChange} querySubmit={querySubmit} /> */}
                 <div className="card-columns container">
                     {headlines}
                 </div>
