@@ -2,6 +2,7 @@ import Axios from 'axios';
 import React, { createContext, useEffect, useState } from 'react';
 import Form from '../components/Form';
 import Loader from '../components/Loader';
+import RequestError from '../components/RequestError';
 export const NewsContext = createContext({});
 
 const NewsContextProvider = ({ children }) => {
@@ -9,6 +10,8 @@ const NewsContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [query, setQuery] = useState('Apple')
     const [date, setDate] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [hasError, sethasError] = useState(false);
     const queryChange = (event) => {
         if (event.target.name === 'query') {
             setQuery(event.target.value)
@@ -20,23 +23,34 @@ const NewsContextProvider = ({ children }) => {
     const querySubmit = (event) => {
         event.preventDefault();
         setIsLoading(true)
-        Axios.get(`http://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`)
+        Axios.get(`https://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`)
             .then(results => {
                 setNews(results.data.articles);
                 setIsLoading(false);
             })
+            .catch(error => {
+                setErrorMessage(error.message);
+                sethasError(true);
+                setIsLoading(false);
+            });
 
     }
 
     useEffect(() => {
 
-        Axios.get(`http://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`)
+        Axios.get(`https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`)
             .then(results => {
                 setNews(results.data.articles);
                 setIsLoading(false);
             })
+            .catch(error => {
+                setErrorMessage(error.message);
+                sethasError(true);
+                setIsLoading(false);
+            });
     }, [])
     if (isLoading) return <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2><Loader /></>
+    else if (hasError) return <RequestError errorMessage={errorMessage} />;
     return (
         <>
             <Form data={{ query, date, queryChange, querySubmit }} />

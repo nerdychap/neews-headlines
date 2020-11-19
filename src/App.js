@@ -1,3 +1,4 @@
+import ErrorBoundary from './components/ErrorBoundary';
 import Footer from './layout/Footer';
 import Header from './layout/Header';
 
@@ -9,9 +10,12 @@ function App() {
   return (
     <>
       <Header />
-      <NewsContextProvider>
-        <Headlines />
-      </NewsContextProvider>
+      <ErrorBoundary>
+        <NewsContextProvider>
+          <Headlines />
+        </NewsContextProvider>
+      </ErrorBoundary>
+
       <Footer />
     </>
   );
