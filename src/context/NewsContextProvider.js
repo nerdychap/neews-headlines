@@ -49,9 +49,9 @@ const NewsContextProvider = ({ children }) => {
                 setIsLoading(false);
             });
     }, [])
-    const FormHeader = <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2></>;
-    if (isLoading) return <>{FormHeader}<Loader /></>
-    else if (hasError) return <>{FormHeader}<RequestError errorMessage={errorMessage} /></>;
+    const FormHeading = <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2></>;
+    if (isLoading) return <>{FormHeading}<Loader /></>
+    else if (hasError) return <>{FormHeading}<RequestError errorMessage={errorMessage} /></>;
     return (
         <>
             <Form data={{ query, date, queryChange, querySubmit }} />
