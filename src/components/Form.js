@@ -1,4 +1,5 @@
 import React from 'react';
+import getDate from '../constants/methods';
 
 const Form = ({ data }) => {
     const { query, queryChange, date, querySubmit } = data;
@@ -10,7 +11,7 @@ const Form = ({ data }) => {
             </div>
             <div className="form-group d-flex form-inline justify-content-end">
                 <label htmlFor="date">Date Published: </label>
-                <input type="date" name="date" min="2020-10-18" id="date" value={date} onChange={queryChange} />
+                <input type="date" name="date" min="2020-10-18" max={`${getDate()}`} id="date" value={date} onChange={queryChange} />
             </div>
             <div className="d-flex justify-content-end">
                 <button className="btn btn-primary px-5 py-1" type="submit">Submit</button>
