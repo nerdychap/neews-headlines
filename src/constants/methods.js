@@ -1,9 +1,6 @@
 const getDate = () => {
-    const dateString = new Date().toUTCString();
-    const day = dateString.slice(5, 7);
-    const year = dateString.slice(12, 16)
-    const month = new Date().getMonth() + 1;
-
+    const currentLocaleDateString = new Date().toLocaleDateString();
+    const [day, month, year] = currentLocaleDateString.split('/');
     return [year, month, day].join('-');
 }
 
