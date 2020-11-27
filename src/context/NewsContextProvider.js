@@ -23,14 +23,12 @@ const NewsContextProvider = ({ children }) => {
     const querySubmit = (event) => {
         event.preventDefault();
         setIsLoading(true)
-        Axios.get(`https://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
+        Axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
             mode: 'no-cors',
             headers: {
-                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Origin': '',
                 'Content-Type': 'application/json'
-            },
-            withCredentials: true,
-            credentials: 'same-origin'
+            }
         })
             .then(results => {
                 setNews(results.data.articles);
@@ -46,7 +44,7 @@ const NewsContextProvider = ({ children }) => {
 
     useEffect(() => {
 
-        Axios.get(`https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
+        Axios.get(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
             mode: 'no-cors',
             headers: {
                 'Access-Control-Allow-Origin': '*',
