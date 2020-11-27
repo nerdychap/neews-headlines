@@ -26,7 +26,8 @@ const NewsContextProvider = ({ children }) => {
         Axios.get(`https://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
-            }
+            },
+            mode: 'no-cors'
         })
             .then(results => {
                 setNews(results.data.articles);
