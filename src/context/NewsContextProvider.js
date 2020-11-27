@@ -51,7 +51,7 @@ const NewsContextProvider = ({ children }) => {
     }, [])
     const FormHeading = <><Form data={{ query, date, queryChange, querySubmit }} /><h2 className="text-center p-1">Headlines</h2></>;
     if (isLoading) return <>{FormHeading}<Loader /></>
-    else if (hasError) return <>{FormHeading}<RequestError errorMessage={errorMessage} /></>;
+    else if (hasError) return <><h1>Error</h1>{FormHeading}<RequestError errorMessage={errorMessage} /></>;
     return (
         <>
             {FormHeading}
