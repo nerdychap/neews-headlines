@@ -30,7 +30,6 @@ const NewsContextProvider = ({ children }) => {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            withCredentials: true,
             credentials: 'same-origin',
         })
             .then(results => {
@@ -54,7 +53,6 @@ const NewsContextProvider = ({ children }) => {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            withCredentials: true,
             credentials: 'same-origin',
         })
             .then(results => {
