@@ -23,7 +23,11 @@ const NewsContextProvider = ({ children }) => {
     const querySubmit = (event) => {
         event.preventDefault();
         setIsLoading(true)
-        Axios.get(`https://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`)
+        Axios.get(`https://newsapi.org/v2/everything?q=${query}&from=${date}&to=${date}&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
             .then(results => {
                 setNews(results.data.articles);
                 setIsLoading(false);
@@ -38,7 +42,11 @@ const NewsContextProvider = ({ children }) => {
 
     useEffect(() => {
 
-        Axios.get(`https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`)
+        Axios.get(`https://newsapi.org/v2/everything?q=Apple&sortBy=popularity&apiKey=f3fe839d93d44c96830015d70b6b29a1`, {
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
             .then(results => {
                 setNews(results.data.articles);
                 setIsLoading(false);
